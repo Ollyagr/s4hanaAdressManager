@@ -9,6 +9,8 @@
     <description>address-manager - Integration Tests</description>
 
     <artifactId>address-manager-integration-tests</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
     <parent>
         <groupId>com.sap.cloud.s4hana.examples</groupId>
         <artifactId>address-manager</artifactId>
@@ -23,6 +25,7 @@
         <surefire.groups/>
         <surefire.excludedGroups/>
         <surefire.maxMemorySize>1024m</surefire.maxMemorySize>
+        <surefire.maxPermSize>512m</surefire.maxPermSize>
         <surefire.logLevel>info</surefire.logLevel>
 
         <jacoco.destFile>${project.build.directory}/coverage-reports/jacoco.exec</jacoco.destFile>
@@ -162,6 +165,7 @@
                 <configuration>
                     <argLine>@{argLine}
                         -Xmx${surefire.maxMemorySize}
+                        -XX:MaxPermSize=${surefire.maxPermSize}
                         -Dorg.slf4j.simpleLogger.defaultLogLevel=${surefire.logLevel}
                         -Djava.io.tmpdir=target/arquillian-working-dir/${surefire.forkNumber}/
                     </argLine>

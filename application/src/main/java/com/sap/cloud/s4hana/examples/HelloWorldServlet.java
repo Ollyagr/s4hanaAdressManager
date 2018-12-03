@@ -18,9 +18,9 @@ public class HelloWorldServlet extends HttpServlet
 
     @Override
     protected void doGet( final HttpServletRequest request, final HttpServletResponse response )
-        throws IOException
+            throws IOException
     {
-        logger.info("I am running 2!");
+        logger.info("I am running!");
         response.getWriter().write("Hello World!");
     }
 }
